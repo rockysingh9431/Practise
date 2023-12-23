@@ -1,34 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h1>Rocky Singh
-    </h1>
-    <div id="root"></div>
-    <div id="container">
-        <h1>heading 1</h1>
-        <h1>heading 2</h1>
-    </div>
-    <script>
-        const heading=document.createElement("h1");
-        heading.innerHTML="Hello this is Javascript";
-        document.getElementById("root").appendChild(heading);
-    </script>
-<div id="root1"></div>
-<script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-<script>
-    const heading1=React.createElement('h1',{id:title},"heading1");
-    const heading2=React.createElement('h1',{id:title},"heading2");
+  </head>
 
-    const container=React.createElement('h1',{id:container},[heading1,heading2]);
-    const heading3=React.createElement('h1',{},"This is React");
-    const root1=ReactDOM.createRoot(document.getElementById('root1'));
-    root1.render(container)
-</script>
-</body>
+  <body>
+    <h1>Rocky Singh</h1>
+    <div id="root"></div>
+    <h1>hello World</h1>
+    <script type="module" src="App.js"></script>
+  </body>
 </html>
