@@ -1,1 +1,0 @@
-{"mappings":"AAAA;;;;AAGA;;;;AAGA","sources":["App.css"],"sourcesContent":["#title{\r\n    color: red;\r\n}\r\n#title3{\r\n    color: rgb(33, 129, 207);\r\n}\r\n#title2{\r\n    color: rgb(228, 19, 134);\r\n}"],"names":[],"version":3,"file":"index.e6b5c606.css.map","sourceRoot":"/__parcel_source_root/"}
