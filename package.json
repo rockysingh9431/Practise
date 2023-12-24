@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "react by akshay saini",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +22,8 @@
   },
   "homepage": "https://github.com/rockysingh9431/Practise#readme",
   "devDependencies": {
+    "@babel/core": "^7.23.6",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "parcel": "^2.10.3",
     "process": "^0.11.10"
   },
@@ -27,7 +31,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
-  "browserlist":[
+  "browserslist": [
     "last 10 versions"
   ]
 }
