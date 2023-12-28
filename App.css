@@ -2,11 +2,13 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
+    border: 1px solid rgb(12, 12, 12);
+    margin-right: 20px;
 }
 img{
-    width: 75px;
-    height:50px;
-    margin: 10px;
+    width: 140px;
+    height:65px;
+    margin-top: 5px;
 }
 .nav-items>ul{
     list-style: none;
@@ -23,9 +25,7 @@ img{
     height:auto;
     width: 250px;
     margin: 10px;
-    border: 1px solid rgb(12, 12, 12);
-    border-radius: 10px;
-    margin-right: 20px;
+    
 }
 .card>img{
     height: 160px;
