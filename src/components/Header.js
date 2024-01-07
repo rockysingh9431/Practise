@@ -1,8 +1,11 @@
 import { useState } from "react";
 import Title from "./Title.";
 import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline"
 const Header = () => {
+  const isOnline=useOnline();
   const [isLoggedIn,setIsLoggedIn]=useState(false)
+
   return (
     <>
       <div className="nav-items">
@@ -24,6 +27,7 @@ const Header = () => {
           </ul>
         </div>
         <div className="Authentication">
+          {!isOnline?"🔴":"🟢"}
           <Link to="/Auth">
             {isLoggedIn ? (
               <button

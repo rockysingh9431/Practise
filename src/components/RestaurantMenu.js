@@ -1,29 +1,17 @@
-import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { CDN_IMG_URL } from "../config";
+import useRestaurant from "../utils/useRestaurant";
 const RestaurantMenu = () => {
   const { resId } = useParams();
-  const [restaurant, setRestaurant] = useState(null);
-
-  useEffect(() => {
-    getRestaurant();
-  }, []);
-  async function getRestaurant() {
-    const api = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.627981&lng=77.3648567&restaurantId=40406"
-    );
-    const json = await api.json();
-    const restaurantDetails = json?.data;
-    setRestaurant(restaurantDetails);
-  }
-
+  const restaurant = useRestaurant(resId);
   if (!restaurant) return null;
 
-  // restuarantMenu extraction from api this we will be using to display the menu
+  // restuarantMenu extraction from api this we will be using to display the food menu
   const restuarantMenu =
-    restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card
+    restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       .card?.itemCards;
 
+  // Destructuring the details from restaurant card to display in page
   let {
     name,
     cuisines,
@@ -32,7 +20,7 @@ const RestaurantMenu = () => {
     areaName,
     costForTwoMessage,
   } = restaurant?.cards[0]?.card?.card?.info;
-
+  
   return (
     <div className="restaurant-menu">
       <div className="restaurantDetails">

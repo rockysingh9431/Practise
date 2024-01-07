@@ -1,58 +1,29 @@
 import Restaurantcard from "./RestaurantCard";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Shimmer from "./Shimmer";
-import { API_CDN_URL } from "../config";
+import useGetRestaurant from "../utils/useGetRestaurant";
+import useOnline from "../utils/useOnline";
+import { Link } from "react-router-dom";
 
-//Filtered data function to search restaurants list
-function filterData(searchText, restaurants) {
-  const filterData = restaurants.filter((restaurant) =>
-    restaurant.info.name.toLowerCase().includes(searchText.toLowerCase())
-  );
-  return filterData;
-}
-
-// Body Component
 const Body = () => {
-  //Hooks is called here for defining state variable
-  const [allRestaurants, setAllRestaurants] = useState([]);
   const [searchText, setSearchText] = useState("");
-  const [filteredRestaurants, setfilteredRestaurants] = useState([]);
+  const [filteredRestaurants, allRestaurant, onSearch] =
+    useGetRestaurant(searchText);
 
-  //Fetching the Api and passing it to useEffect so that it will fetch api for us once
-  useEffect(() => {
-    getRestaurants();
-  }, []); 
-
-  //getRestaurant function that is helping to fetch the API and set the initial values
-  // of filtered and all restaurants
-  async function getRestaurants() {
-    const api = await fetch(API_CDN_URL);
-    const json = await api.json();
-    const restaurantList =
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants;
-        console.log(restaurantList)
-    setAllRestaurants(restaurantList);  //setting the value of all the restaurant
-    setfilteredRestaurants(restaurantList);//setting the value of filtered restaurants
-  }
-
-  //Onchange function that will update the value of searchtext in real time
   const onChange = (e) => {
+    console.log(searchText);
     setSearchText(e.target.value);
   };
+  const isOnline = useOnline();
+  if (!isOnline)
+    return (
+      <h1 style={{ display: "flex", justifyContent: "center" }}>
+        It seems like you are offline....
+      </h1>
+    );
+  if (!allRestaurant) return <h1>No restaurants to Display</h1>;
 
-  // Search function that will get filtered Data from filterdata function and update the value of the
-  //filtered restaurant using setFilteredRestaurants function provided by useState...
-  const onSearch = () => {
-    const filteredData = filterData(searchText, allRestaurants);
-    setfilteredRestaurants(filteredData);
-  };
-  
-  //if restaurants are empty
-  if(!allRestaurants) return <div className="noRestaurants">No Restaurants to Display</div>
-
-  // Main function of our body we write jsx here that will displayed on page
-  return allRestaurants.length === 0 ? (
+  return allRestaurant.length === 0 ? (
     <Shimmer />
   ) : (
     <>
@@ -66,10 +37,10 @@ const Body = () => {
             onChange={onChange}
           />
           <button
-          type="submit"
+            type="submit"
             className="search-button"
             style={{ marginLeft: "5px" }}
-            onSubmit={onSearch}
+            onClick={onSearch}
           >
             Search
           </button>
@@ -81,7 +52,13 @@ const Body = () => {
         ) : (
           filteredRestaurants.map((restaurant) => {
             return (
-              <Restaurantcard key={restaurant.info.id} {...restaurant.info} />
+              // We are running map on Link not on Restaurantcard component so we move key to Link//
+              <Link
+                to={"restaurant/" + restaurant.info.id}
+                key={restaurant.info.id}
+              >
+                <Restaurantcard {...restaurant.info} />
+              </Link>
             );
           })
         )}

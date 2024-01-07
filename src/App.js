@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense ,lazy} from "react";
 import ReactDOM from "react-dom/client";
 import Body from "./components/Body";
 import Header from "./components/Header";
@@ -8,10 +8,14 @@ import About from "./components/About";
 import Cart from "./components/Cart";
 import Error from "./components/Error";
 import Auth from "./components/Auth";
-import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Profile from "./components/Profile";
+import Shimmer from "./components/Shimmer";
 
+//importing Restaurant menu Dynamically // Lazy loading // Chunking
+const RestaurantMenu = lazy(() => {
+  import("./components/RestaurantMenu");
+});
 const App = () => {
   return (
     <>
@@ -51,7 +55,11 @@ const Router = createBrowserRouter([
       },
       {
         path: "/restaurant/:resId",
-        element: <RestaurantMenu />,
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <RestaurantMenu />
+          </Suspense>
+        ),
       },
       {
         path: "/auth",
