@@ -1,0 +1,116 @@
+body {
+  background-color: rgb(255, 255, 255); /* Replace with your desired color code or name */
+  margin: 0; /* Optional: Remove default body margin */
+  padding: 0; /* Optional: Remove default body padding */
+}
+/* Header */
+.nav-items {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  background-color: rgb(255, 255, 255);
+  border: 0px white solid;
+  border-radius: 10px;
+}
+/* Title */
+.logo > img {
+  width: 100px;
+  height: 70px;
+  margin: 5px;
+}
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+}
+.navbar > ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+.navbar > ul > li {
+  margin: 10px;
+}
+/*Login SignUp */
+.auth-btn {
+  width: 100px;
+  height: 45px;
+  background-color: rgb(255, 255, 255);
+  margin: 10px;
+  border: 0px solid rgb(255, 239, 220);
+  border-radius: 10px;
+}
+
+/*body*/
+
+.card {
+  height: 300px;
+  width: 200px;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 12px;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.card > img {
+  height: 160px;
+  width: 190px;
+  margin-left: 5px;
+  border: 0px rgb(255, 255, 255);
+  border-radius: 15px;
+}
+.restaurantList {
+  display: flex;
+  flex-wrap: wrap;
+}
+.cuisines {
+  display: flex;
+  flex-wrap: wrap;
+}
+.shimmer-card {
+  width: 200px;
+  height: 300px;
+  background-color: rgb(221, 214, 214);
+  margin: 10px;
+}
+.card > h4 {
+  margin: 10px;
+}
+
+/* Search items */
+.searchBox {
+  display: flex;
+  justify-content: center;
+}
+.searchBox>input{
+  width:400px;
+  height: 25px;
+  border: 1px rgb(0, 0, 0) solid;
+  border-radius:5px;
+}
+.searchBox>button{
+  width: 90px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+}
+
+/*  Error Container */
+.error-container>h1{
+  display:flex;
+  justify-content: center;
+}
+
+.restaurantDetails>img{
+  height: 400px;
+  width:400px;
+}
+.restaurant-menu{
+  display:flex;
+  justify-content: space-around;
+}
+.login-form>div{
+  margin:10px
+}
+.login-form>div>label{
+  margin-right:20px
+}
