@@ -1,4 +1,4 @@
-import React, { Suspense ,lazy} from "react";
+import React, { Suspense, lazy } from "react";
 import ReactDOM from "react-dom/client";
 import Body from "./components/Body";
 import Header from "./components/Header";
@@ -13,9 +13,8 @@ import Profile from "./components/Profile";
 import Shimmer from "./components/Shimmer";
 
 //importing Restaurant menu Dynamically // Lazy loading // Chunking
-const RestaurantMenu = lazy(() => {
-  import("./components/RestaurantMenu");
-});
+const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
+
 const App = () => {
   return (
     <>
