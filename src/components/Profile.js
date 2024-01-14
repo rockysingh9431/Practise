@@ -1,9 +1,12 @@
+import {useContext} from "react";
+import UserContext from "../utils/UserContext";
 const Profile=()=>{
-    return(
-        <div className="profileContainer">
-            <h1>Name: Rocky Singh</h1>
-            <h2>Add: Siwan Bihar</h2>
-        </div>
-    )
+  const {user}=useContext(UserContext);
+    return (
+      <div className="ml-2">
+        <h1 className="font-light text-xl">Name: {user.name}</h1>
+        <h2 className="font-light text-xl">email: {user.email}</h2>
+      </div>
+    );
 }
 export default Profile;

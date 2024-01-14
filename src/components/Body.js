@@ -4,16 +4,11 @@ import Shimmer from "./Shimmer";
 import useGetRestaurant from "../utils/useGetRestaurant";
 import useOnline from "../utils/useOnline";
 import { Link } from "react-router-dom";
-
+import SearchBox from "./searchBox";
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurants, allRestaurant, onSearch] =
     useGetRestaurant(searchText);
-
-  const onChange = (e) => {
-    console.log(searchText);
-    setSearchText(e.target.value);
-  };
   const isOnline = useOnline();
   if (!isOnline)
     return (
@@ -21,32 +16,18 @@ const Body = () => {
         It seems like you are offline....
       </h1>
     );
-  if (!allRestaurant) return <h1>No restaurants to Display</h1>;
 
+  if (!allRestaurant) return <h1>No restaurants to Display</h1>;
   return allRestaurant.length === 0 ? (
     <Shimmer />
   ) : (
     <>
-      <div className="searchBox-container">
-        <div className="searchBox">
-          <input
-            type="text"
-            className="search-input"
-            placeholder="search"
-            value={searchText}
-            onChange={onChange}
-          />
-          <button
-            type="submit"
-            className="search-button"
-            style={{ marginLeft: "5px" }}
-            onClick={onSearch}
-          >
-            Search
-          </button>
-        </div>
-      </div>
-      <div className="restaurantList">
+      <SearchBox
+        onSearch={onSearch}
+        searchText={searchText}
+        setSearchText={setSearchText}
+      />
+      <div data-testid="res-list" className="flex flex-wrap justify-center">
         {filteredRestaurants?.length === 0 ? (
           <h1>No Restaurant found with this name Nearby</h1>
         ) : (

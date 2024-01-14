@@ -5,8 +5,8 @@ import * as yup from "yup";
 const Auth = () => {
   return (
     <>
-      <h1 style={{ display: "flex", justifyContent: "center" }}>
-        this is my login page
+      <h1 className="m-3 font-bold text-3xl">
+        Please Enter your Username and password to authenticate
       </h1>
       <Formik
         initialValues={{
@@ -50,36 +50,66 @@ const Auth = () => {
         }}
       >
         {/* <Form> is equal to <form onSubmit="formik.handleSubmit" */}
-        <Form className="login-form">
-          <div className="firstname">
-            <label htmlFor="firstName">First Name</label>
-            <Field name="firstName" type="text" />
+        <Form className="m-2">
+          <div className="m-2">
+            <label className="mr-16" htmlFor="firstName">
+              First Name
+            </label>
+            <Field
+              className="border border-green-950"
+              name="firstName"
+              type="text"
+            />
             <ErrorMessage name="firstName" />
           </div>
 
-          <div className="lastName">
-            <label htmlFor="lastName">Last Name</label>
-            <Field name="lastName" type="text" />
+          <div className="m-2">
+            <label className="mr-16" htmlFor="lastName">
+              Last Name
+            </label>
+            <Field
+              className="border border-green-950"
+              name="lastName"
+              type="text"
+            />
             <ErrorMessage name="lastName" />
           </div>
 
-          <div className="email">
-            <label htmlFor="email">Email Address</label>
-            <Field name="email" type="email" />
+          <div className="m-2">
+            <label className="mr-12" htmlFor="email">
+              Email Address
+            </label>
+            <Field
+              className="border border-green-950"
+              name="email"
+              type="email"
+            />
             <ErrorMessage name="email" />
           </div>
 
-          <div className="password">
-            <label htmlFor="password">Password</label>
-            <Field name="password" type="password" />
+          <div className="m-2">
+            <label className="mr-20" htmlFor="password">
+              Password
+            </label>
+            <Field
+              className="border border-green-950"
+              name="password"
+              type="password"
+            />
             <ErrorMessage name="password" />
           </div>
-          <div className="confirmPassword">
-            <label htmlFor="confirmPassword">confirmPassword</label>
-            <Field name="confirmPassword" type="confirmPassword" />
+          <div className="m-2">
+            <label className="mr-6" htmlFor="confirmPassword">
+              confirmPassword
+            </label>
+            <Field
+              className="border border-green-950"
+              name="confirmPassword"
+              type="confirmPassword"
+            />
             <ErrorMessage name="confirmPassword" />
           </div>
-          <button type="submit">Submit</button>
+          <button className="m-2 bg-green-950 text-white p-1 rounded-lg" type="submit">Submit</button>
         </Form>
       </Formik>
     </>

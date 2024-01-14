@@ -10,7 +10,7 @@ const useGetRestaurant = (searchText) => {
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   useEffect(() => {
     getRestaurants();
-  }, []);
+  },[]);
 
   //getRestaurant function that is helping to fetch the API and set the initial values
   // of filtered and all restaurants
@@ -18,17 +18,17 @@ const useGetRestaurant = (searchText) => {
     const api = await fetch(API_CDN_URL);
     const json = await api.json();
     const restaurantList =
-      json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+      json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants;
 
     setAllRestaurants(restaurantList); //setting the value of all the restaurant
     setFilteredRestaurants(restaurantList);
   }
 const onSearch = () => {
-    console.log("search")
     const filteredData = filterData(searchText, allRestaurants);
     setFilteredRestaurants(filteredData);
   };
+
   return [filteredRestaurants, allRestaurants,onSearch];
 };
 export default useGetRestaurant;
