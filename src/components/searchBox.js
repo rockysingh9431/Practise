@@ -1,13 +1,10 @@
-// import UserContext from "../utils/UserContext";
-// import { useContext } from "react";
 const SearchBox = ({ onSearch, searchText, setSearchText }) => {
-//   const { user, setUser } = useContext(UserContext);
   const onChange = (e) => {
     setSearchText(e.target.value);
   };
   return (
     <>
-      <div className="flex justify-center p-5 bg-orange-50 mb-2 shadow-lg">
+      <div className="flex justify-center p-5 mb-2 shadow-lg">
         <input
         data-testid="search-input"
           type="text"

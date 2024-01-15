@@ -21,7 +21,7 @@ const RestaurantMenu = lazy(() => import("./components/RestaurantMenu"));
 const App = () => {
   const [user, setUser] = useState({
     name: "Rocky Singh",
-    email: "Support@gmail1.com",
+    email: "singhrocky9432@gmail.com",
   });
   return (
     <Provider store={store}>

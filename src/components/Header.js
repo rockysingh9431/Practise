@@ -14,7 +14,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="flex justify-between bg-orange-50 shadow-lg mb-2">
+      <div className="flex justify-between shadow-xl mb-2">
         <div className="flex justify-between">
           <Title />
           <ul className="flex py-6 ml-8">
@@ -50,7 +50,7 @@ const Header = () => {
               <Link to="/">
                 <button
                   data-testid="logOutButton"
-                  className="font-bold text-xl"
+                  className="font-medium text-lg"
                   onClick={() => setIsLoggedIn(false)}
                 >
                   Logout
@@ -60,7 +60,7 @@ const Header = () => {
               <Link to="/Auth">
                 <button
                   data-testid="logInButton"
-                  className="font-bold text-xl"
+                  className="font-medium text-lg"
                   onClick={() => setIsLoggedIn(true)}
                 >
                   LogIn

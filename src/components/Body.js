@@ -4,7 +4,7 @@ import Shimmer from "./Shimmer";
 import useGetRestaurant from "../utils/useGetRestaurant";
 import useOnline from "../utils/useOnline";
 import { Link } from "react-router-dom";
-import SearchBox from "./searchBox";
+import SearchBox from "./SearchBox";
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurants, allRestaurant, onSearch] =
